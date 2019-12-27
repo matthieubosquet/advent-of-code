@@ -1,4 +1,5 @@
 .bloop
+.DS_STORE
 .metals
 project/*
 !project/plugins.sbt
