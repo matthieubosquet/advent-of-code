@@ -16,7 +16,7 @@
 
 import scala.io.Source
 
-object Spacecraft extends App {
+object Spacecraft {
 
   def getFuelRequired(): Int =
     getModuleMassList().map(getFuelRequiredForModule(_)).sum
@@ -24,8 +24,7 @@ object Spacecraft extends App {
   def getFuelRequiredForMass(mass: Int): Int = mass / 3 - 2
 
   def getFuelRequiredForModule(mass: Int): Int =
-    if (getFuelRequiredForMass(mass) > 0)
-      getFuelRequiredForMass(mass) + getFuelRequiredForModule(getFuelRequiredForMass(mass))
+    if (getFuelRequiredForMass(mass) > 0) getFuelRequiredForMass(mass) + getFuelRequiredForModule(getFuelRequiredForMass(mass))
     else 0
 
   def getModuleMassList(): List[Int] =
